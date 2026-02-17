@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        --background: 0.145 0 0;
+        --foreground: 0.985 0 0;
+        --card: 0.205 0 0;
+        --card-foreground: 0.985 0 0;
+        --popover: 0.269 0 0;
+        --popover-foreground: 0.985 0 0;
+        --primary: 0.75 0.15 30;
+        --primary-foreground: 0.145 0 0;
+        --secondary: 0.371 0 0;
+        --secondary-foreground: 0.985 0 0;
+        --muted: 0.269 0 0;
+        --muted-foreground: 0.708 0 0;
+        --accent: 0.45 0.12 30;
+        --accent-foreground: 0.985 0 0;
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.985 0 0;
+        --border: 1 0 0 / 12%;
+        --input: 1 0 0 / 18%;
+        --ring: 0.75 0.15 30;
+        --chart-1: 0.65 0.20 280;
+        --chart-2: 0.70 0.18 160;
+        --chart-3: 0.75 0.15 30;
+        --chart-4: 0.60 0.25 310;
+        --chart-5: 0.68 0.22 50;
+    }
+
+    .dark {
+        --background: 0.145 0 0;
+        --foreground: 0.985 0 0;
+        --card: 0.205 0 0;
+        --card-foreground: 0.985 0 0;
+        --popover: 0.269 0 0;
+        --popover-foreground: 0.985 0 0;
+        --primary: 0.75 0.15 30;
+        --primary-foreground: 0.145 0 0;
+        --secondary: 0.371 0 0;
+        --secondary-foreground: 0.985 0 0;
+        --muted: 0.269 0 0;
+        --muted-foreground: 0.708 0 0;
+        --accent: 0.45 0.12 30;
+        --accent-foreground: 0.985 0 0;
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.985 0 0;
+        --border: 1 0 0 / 12%;
+        --input: 1 0 0 / 18%;
+        --ring: 0.75 0.15 30;
+        --chart-1: 0.65 0.20 280;
+        --chart-2: 0.70 0.18 160;
+        --chart-3: 0.75 0.15 30;
+        --chart-4: 0.60 0.25 310;
+        --chart-5: 0.68 0.22 50;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold;
+        letter-spacing: -0.02em;
+    }
+
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+}

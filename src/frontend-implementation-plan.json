@@ -1,0 +1,77 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "EventX — Perfis por função e atalho de avisos na Home",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "summary": "Estender o modal de configuração de perfil para suportar o papel Expositor/Artista e coletar campos específicos por função (CNPJ/CPF, Empresa, Portfólio/URL), com textos via i18n pt-BR.",
+      "acceptanceCriteria": [
+        "Profile setup modal includes role selection for Organizador, Expositor/Artista, and Participante.",
+        "When Organizador is selected, inputs for CNPJ/CPF and Empresa are shown and persisted to the backend profile.",
+        "When Expositor/Artista is selected, an input for Portfolio/Social Media link is shown and persisted to the backend profile.",
+        "All labels/placeholders/buttons introduced or changed use pt-BR strings sourced from the i18n strings file (no hard-coded English UI text)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/auth/ProfileSetupModal.tsx",
+          "operation": "modify",
+          "description": "Add role option for Expositor/Artista (mapped to the existing role value used by the app), and conditionally render organizer/exhibitor fields (cnpjCpf, empresa, portfolioUrl). Ensure the submit payload includes these optional fields when applicable, and replace any hard-coded placeholders with i18n strings via useStrings. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/i18n/strings.pt-BR.ts",
+          "operation": "modify",
+          "description": "Add pt-BR string keys for the new profile field labels and placeholders (CNPJ/CPF, Empresa, Portfólio/Redes sociais URL) and for existing hard-coded placeholders (nome/e-mail) used in the profile modal. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Adicionar na Home um botão de avisos em formato de sino com indicador de avisos recentes e ação para levar o usuário à lista de avisos.",
+      "acceptanceCriteria": [
+        "Home screen shows a clearly visible notifications/bell UI control above-the-fold.",
+        "If announcements exist, the control visually indicates there are announcements (e.g., badge/count or highlighted state) using the existing announcements query data.",
+        "Activating the control takes the user to view announcements (either scroll/jump to the announcements card on Home or navigate to a dedicated announcements view if one exists).",
+        "All UI text related to this control remains in pt-BR (strings-based)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/InicioPage.tsx",
+          "operation": "modify",
+          "description": "Add a prominent notification bell control in the header area (above-the-fold) that uses existing announcements query data to show a badge/count/highlight when announcements exist. Wire click behavior to jump/scroll to the announcements section on the same page (e.g., via a stable section id/ref). Ensure any visible/accessible text (labels, aria-label, helper text) comes from pt-BR i18n strings. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/i18n/strings.pt-BR.ts",
+          "operation": "modify",
+          "description": "Add pt-BR string keys for the Home notifications control (e.g., 'Avisos', 'Ver avisos', accessible label for the bell, and any helper text). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Renomear o rótulo da aba inferior de “Programação” para “Eventos” via i18n, mantendo as rotas e o comportamento existentes.",
+      "acceptanceCriteria": [
+        "Bottom tab bar displays “Eventos” instead of “Programação”.",
+        "The label is provided via the existing i18n strings module (no hard-coded label).",
+        "Navigation continues to function (the tab still routes correctly to the existing schedule/events page)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/i18n/strings.pt-BR.ts",
+          "operation": "modify",
+          "description": "Update the navigation label string currently used for the '/programacao' tab from “Programação” to “Eventos” (pt-BR), keeping the key-based i18n usage intact. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/navigation/BottomTabBar.tsx",
+          "operation": "modify",
+          "description": "Ensure the bottom tab bar uses the i18n-provided label that now renders as “Eventos” for the existing '/programacao' route, without changing navigation behavior. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProgramacaoPage.tsx",
+          "operation": "modify",
+          "description": "Align the page header title with the updated i18n navigation label (so it reflects “Eventos” where appropriate), without changing the underlying '/programacao' route behavior. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "kind": "build_request",
+  "title": "Extend role-based profiles and strengthen announcements entry points",
+  "projectName": "EventX",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "text": "Extend the backend UserProfile data model to support organizer and exhibitor-specific profile fields required by the existing role-based system: store CNPJ/CPF and Empresa for Organizador profiles, and store a Portfolio/Social Media URL for Expositor/Artista profiles.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "It’s important that the 'Organizador' profile includes fields for 'CNPJ/CPF' and 'Empresa', and the 'Expositor/Artista' profile includes a link for 'Portfolio/Social Media'."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend candid types include the new fields on UserProfile (optional/nullable where appropriate) without breaking existing callers.",
+        "Saving and fetching the caller profile preserves the new fields.",
+        "Organizer-only operations (admin) continue to work unchanged after the type update."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Update the existing profile setup/edit UI to capture the new role-specific fields and to allow selecting the Expositor/Artista role (in addition to Organizador and Participante), while keeping all UI strings in pt-BR via the existing i18n system.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Please modify and extend the existing role-based system.",
+          "It’s important that the 'Organizador' profile includes fields for 'CNPJ/CPF' and 'Empresa', and the 'Expositor/Artista' profile includes a link for 'Portfolio/Social Media'."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile setup modal includes role selection for Organizador, Expositor/Artista, and Participante.",
+        "When Organizador is selected, inputs for CNPJ/CPF and Empresa are shown and persisted to the backend profile.",
+        "When Expositor/Artista is selected, an input for Portfolio/Social Media link is shown and persisted to the backend profile.",
+        "All labels/placeholders/buttons introduced or changed use pt-BR strings sourced from the i18n strings file (no hard-coded English UI text)."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add a prominent announcements entry point on the Home screen in the form of a notification bell (or equivalent) that clearly indicates the presence of recent announcements and navigates users to the announcements section/list.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Please ensure there is a prominent 'Notification Bell' or 'Announcements' section on the Home screen so users don't miss updates."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home screen shows a clearly visible notifications/bell UI control above-the-fold.",
+        "If announcements exist, the control visually indicates there are announcements (e.g., badge/count or highlighted state) using the existing announcements query data.",
+        "Activating the control takes the user to view announcements (either scroll/jump to the announcements card on Home or navigate to a dedicated announcements view if one exists).",
+        "All UI text related to this control remains in pt-BR (strings-based)."
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Rename the bottom navigation tab label from “Programação” to “Eventos” (pt-BR) without changing the underlying route behavior unless required, and ensure the updated label is sourced from the i18n strings.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Navigation: Bottom navigation bar with: 'Início', 'Eventos', 'Mapa', 'Ingressos', and 'Perfil'."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bottom tab bar displays “Eventos” instead of “Programação”.",
+        "The label is provided via the existing i18n strings module (no hard-coded label).",
+        "Navigation continues to function (the tab still routes correctly to the existing schedule/events page)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Keep the backend as a single Motoko actor with all logic in backend/main.mo.",
+    "Do not modify any files under frontend/src/components/ui or any other frontend immutablePaths.",
+    "All end-user UI text must remain in Brazilian Portuguese (pt-BR) and use the existing i18n mechanism (frontend/src/i18n/strings.pt-BR.ts + useStrings).",
+    "Do not implement real push notifications (not supported); announcements remain in-app only."
+  ],
+  "nonGoals": [
+    "Implementing external/social login providers beyond Internet Identity.",
+    "Implementing real push notifications.",
+    "Adding Google Maps integration.",
+    "Rebuilding the niche modules (Tattoo/Moto/Music) beyond any changes strictly required by the profile-field additions and announcements entry-point change."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

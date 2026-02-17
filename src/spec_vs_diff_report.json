@@ -1,0 +1,44 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-17T02:34:09.328Z",
+  "summary": "REQ-15, REQ-17 and REQ-18 appear implemented in the provided diff summary (backend UserProfile extended; Home bell entry point; nav label changed via i18n). REQ-16 is only partially evidenced: profile setup modal supports the new role and fields, but there is no clear evidence of updating the profile edit flow or pre-filling/persisting the new fields when editing an existing profile.",
+  "missing_requirements": [
+    {
+      "id": "REQ-16",
+      "requirement": "Update the existing profile setup/edit UI to capture the new role-specific fields (CNPJ/CPF + Empresa for Organizador; Portfolio/Social URL for Expositor/Artista) and persist them, including in edit mode.",
+      "reason": "The diff shows updates to ProfileSetupModal (setup flow when userProfile === null), but does not show any changes to an existing profile edit UI, nor evidence that the new fields are pre-filled from an existing profile (only name/email are set in useEffect).",
+      "evidence": [
+        "frontend/src/components/auth/ProfileSetupModal.tsx (showProfileSetup = isFetched && userProfile === null; useEffect sets only name/email; no evidence of edit-mode support)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added a Motoko upgrade migration module and wired the main actor to use it for stable persistence upgrades.",
+      "reason": "The BuildRequest constraints specify keeping the backend as a single Motoko actor with all logic in backend/main.mo; a new backend/migration.mo module and '(with migration = ...)' wiring were added and not explicitly requested by any requirement.",
+      "evidence": [
+        "backend/migration.mo (new file)",
+        "backend/main.mo (import Migration \"migration\"; '(with migration = Migration.run)')"
+      ]
+    },
+    {
+      "description": "Introduced additional hard-coded UI strings in ProgramacaoPage (tab labels and toast messages) that are not sourced from i18n.",
+      "reason": "Not requested by any requirement, and also conflicts with the stated constraint that end-user UI text should use the existing i18n mechanism (these strings are inline literals).",
+      "evidence": [
+        "frontend/src/pages/ProgramacaoPage.tsx (toast.success('Removido da agenda'); toast.success('Adicionado à agenda'); toast.error('Erro ao atualizar agenda'); TabsTrigger labels like 'Agenda', 'Tattoo', 'Moto', 'Lineup')"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/auth/ProfileSetupModal.tsx",
+    "frontend/src/i18n/strings.pt-BR.ts",
+    "frontend/src/pages/InicioPage.tsx",
+    "frontend/src/pages/ProgramacaoPage.tsx",
+    "project_state.json"
+  ]
+}

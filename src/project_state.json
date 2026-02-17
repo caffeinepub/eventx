@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build EventX, a dark-mode mobile event management app for alternative culture events (motorcycle clubs, tattoo conventions, music festivals) with role-based experiences and all user-facing UI text in Brazilian Portuguese.",
+  "architectural_notes": [
+    "All user-facing UI text (titles, buttons, labels) must be in Brazilian Portuguese; structural/logic descriptions may be in English.",
+    "Push notifications are not supported; implement notifications via internal in-app announcements (surface prominently on Home).",
+    "Support offline-capable experiences for 'Meus Ingressos' and 'Mapa' via local caching/sync when online."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-brazilian-portuguese-only-ui-policy-across-the-entire-frontend-every-user-facing-string-titles-labels-buttons-navigation-empty-states-errors-must-be-in-pt-br-including-role-names-and-menu-tabs",
+      "title": "Implement a Brazilian-Portuguese-only UI policy across the entire frontend: every user-facing string (titles, labels, buttons, navigation, empty states, errors) must be in pt-BR, including role names and menu tabs.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-core-app-shell-optimized-for-mobile-bottom-tab-main-navigation-with-the-tabs-in-cio-programa-o-mapa-ingressos-perfil-plus-a-role-aware-experience-organizador-expositor-artista-participante-that-controls-which-modules-are-visible-and-editable",
+      "title": "Create the core app shell optimized for mobile: bottom-tab main navigation with the tabs “Início”, “Programação”, “Mapa”, “Ingressos”, “Perfil”, plus a role-aware experience (Organizador, Expositor/Artista, Participante) that controls which modules are visible and editable.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-consistent-modern-dark-mode-visual-system-with-high-contrast-typography-and-rugged-industrial-iconography-applied-across-all-screens-colors-type-scale-spacing-components",
+      "title": "Build a consistent modern dark-mode visual system with high-contrast typography and rugged/industrial iconography, applied across all screens (colors, type scale, spacing, components).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-participant-dashboard-features-meus-ingressos-ticket-wallet-with-qr-code-display-and-backend-validation-flow-include-a-validation-ui-for-organizador-staff-to-verify-tickets",
+      "title": "Implement Participant dashboard features: “Meus Ingressos” ticket wallet with QR code display and backend validation flow; include a validation UI for Organizador staff to verify tickets.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-minha-agenda-with-favoriting-participants-can-browse-activities-program-items-and-add-remove-favorites-the-agenda-view-shows-only-favorited-items-in-chronological-order",
+      "title": "Implement “Minha Agenda” with favoriting: participants can browse activities (program items) and add/remove favorites; the agenda view shows only favorited items in chronological order.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mapa-do-evento-as-an-interactive-venue-map-experience-that-can-display-categorized-points-of-interest-stages-tattoo-booths-food-trucks-restrooms-and-allow-tapping-markers-to-see-details",
+      "title": "Implement “Mapa do Evento” as an interactive venue map experience that can display categorized points of interest (stages, tattoo booths, food trucks, restrooms) and allow tapping markers to see details.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-modular-event-sections-and-navigation-entries-for-espa-o-tattoo-espa-o-moto-and-lineup-e-palcos-with-content-configurable-per-event-type-by-organizador",
+      "title": "Create the modular event sections and navigation entries for: “Espaço Tattoo”, “Espaço Moto”, and “Lineup e Palcos”, with content configurable per event type by Organizador.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-espa-o-tattoo-artist-exhibitor-gallery-with-portfolios-an-action-button-labeled-solicitar-or-amento-that-sends-a-quote-request-to-the-artist-exhibitor-inbox-and-a-concurso-de-tatuagem-voting-system-with-near-real-time-updates-via-polling",
+      "title": "Implement “Espaço Tattoo”: artist/exhibitor gallery with portfolios, an action button labeled “Solicitar Orçamento” that sends a quote request to the artist/exhibitor inbox, and a “Concurso de Tatuagem” voting system with near-real-time updates via polling.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-espa-o-moto-a-rotas-e-comboios-section-that-supports-route-convoy-listings-with-start-time-meeting-point-and-notes-plus-informational-pages-cards-for-rea-de-camping-and-estacionamento-seguro",
+      "title": "Implement “Espaço Moto”: a “Rotas e Comboios” section that supports route/convoy listings with start time, meeting point, and notes, plus informational pages/cards for “Área de Camping” and “Estacionamento Seguro”.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-lineup-e-palcos-a-dynamic-music-schedule-by-stage-palco-and-time-with-artist-detail-pages-and-a-me-avise-reminder-control-that-creates-in-app-reminders-not-os-push",
+      "title": "Implement “Lineup e Palcos”: a dynamic music schedule by stage (“palco”) and time with artist detail pages and a “Me avise” reminder control that creates in-app reminders (not OS push).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-engagement-and-safety-tools-mural-da-galera-community-photo-wall-upload-browse-and-avisos-importantes-announcements-emergency-notices-managed-by-organizador",
+      "title": "Implement engagement and safety tools: “Mural da Galera” community photo wall (upload + browse) and “Avisos Importantes” announcements/emergency notices managed by Organizador.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-minha-carteira-cashless-area-as-an-internal-wallet-ledger-show-balance-transactions-and-allow-organizador-to-issue-top-ups-and-record-on-site-spending-entries-no-external-payment-provider-required",
+      "title": "Implement “Minha Carteira” cashless area as an internal wallet ledger: show balance, transactions, and allow Organizador to issue top-ups and record on-site spending entries (no external payment provider required).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-a-set-of-custom-static-image-assets-consistent-with-the-rugged-industrial-dark-theme-and-render-them-in-the-ui-app-icon-tab-icons-module-header-art-store-assets-in-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend",
+      "title": "Generate and include a set of custom static image assets consistent with the rugged/industrial dark theme, and render them in the UI (app icon + tab icons + module header art). Store assets in frontend/public/assets/generated and reference them directly from the frontend.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-existing-profile-setup-edit-ui-to-capture-the-new-role-specific-fields-and-to-allow-selecting-the-expositor-artista-role-in-addition-to-organizador-and-participante-while-keeping-all-ui-strings-in-pt-br-via-the-existing-i18n-system",
+      "title": "Update the existing profile setup/edit UI to capture the new role-specific fields and to allow selecting the Expositor/Artista role (in addition to Organizador and Participante), while keeping all UI strings in pt-BR via the existing i18n system.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-prominent-announcements-entry-point-on-the-home-screen-in-the-form-of-a-notification-bell-or-equivalent-that-clearly-indicates-the-presence-of-recent-announcements-and-navigates-users-to-the-announcements-section-list",
+      "title": "Add a prominent announcements entry point on the Home screen in the form of a notification bell (or equivalent) that clearly indicates the presence of recent announcements and navigates users to the announcements section/list.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-rename-the-bottom-navigation-tab-label-from-programa-o-to-eventos-pt-br-without-changing-the-underlying-route-behavior-unless-required-and-ensure-the-updated-label-is-sourced-from-the-i18n-strings",
+      "title": "Rename the bottom navigation tab label from “Programação” to “Eventos” (pt-BR) without changing the underlying route behavior unless required, and ensure the updated label is sourced from the i18n strings.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Define role-based user profiles (Organizador, Expositor/Artista, Participante) and main navigation tabs: Início, Programação, Mapa, Ingressos, Perfil (PT-BR UI).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Participant dashboard: Meus Ingressos ticket wallet with QR code validation.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Participant dashboard: Minha Agenda personalized schedule with favorites.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Participant dashboard: Mapa do Evento interactive venue map (stages, tattoo booths, food trucks, restrooms).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Modular UI: Espaço Tattoo with artist gallery/portfolios, Solicitar Orçamento, and real-time Concurso de Tatuagem voting.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Modular UI: Espaço Moto with GPS-integrated Rotas e Comboios plus Área de Camping and Estacionamento Seguro info.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Modular UI: Lineup e Palcos dynamic schedule with Me avise reminders via push notifications.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Engagement: Mural da Galera community photo wall.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Safety/comms: Avisos Importantes emergency/announcement section.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Payments: Minha Carteira cashless integration area for on-site consumption.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Visual design system: modern dark mode, high-contrast outdoor typography, rugged/industrial iconography.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Backend domain model and access control: persist users, roles, events, program items, favorites, tickets, validations, map POIs, tattoo artists/portfolios, quote requests, contest entries/votes, moto routes/info, lineup items, photo wall posts, announcements, and wallet ledger; enforce role-based permissions server-side.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Extend/modify existing role-based registration/profile system: Organizador must capture CNPJ/CPF and Empresa; Expositor/Artista must include Portfolio/Social Media link (PT-BR UI for all fields).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Implement in-app announcements access point: prominent Notification Bell/Announcements entry on Home screen so attendees see updates (no real push).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Offline access: ensure 'Meus Ingressos' (QR wallet) and 'Mapa' have offline-capable behavior (cached data) for use without internet.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Update/verify bottom navigation to use tab label 'Eventos' (instead of 'Programação') while keeping PT-BR UI across all tabs.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Extend the backend UserProfile data model to support organizer and exhibitor-specific profile fields required by the existing role-based system: store CNPJ/CPF and Empresa for Organizador profiles, and store a Portfolio/Social Media URL for Expositor/Artista profiles.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "EventX",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

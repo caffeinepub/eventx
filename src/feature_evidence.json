@@ -1,0 +1,74 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-existing-profile-setup-edit-ui-to-capture-the-new-role-specific-fields-and-to-allow-selecting-the-expositor-artista-role-in-addition-to-organizador-and-participante-while-keeping-all-ui-strings-in-pt-br-via-the-existing-i18n-system",
+      "featureTitle": "Update the existing profile setup/edit UI to capture the new role-specific fields and to allow selecting the Expositor/Artista role (in addition to Organizador and Participante), while keeping all UI strings in pt-BR via the existing i18n system.",
+      "files": [
+        "frontend/src/components/auth/ProfileSetupModal.tsx",
+        "frontend/src/i18n/strings.pt-BR.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "qr-code@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-prominent-announcements-entry-point-on-the-home-screen-in-the-form-of-a-notification-bell-or-equivalent-that-clearly-indicates-the-presence-of-recent-announcements-and-navigates-users-to-the-announcements-section-list",
+      "featureTitle": "Add a prominent announcements entry point on the Home screen in the form of a notification bell (or equivalent) that clearly indicates the presence of recent announcements and navigates users to the announcements section/list.",
+      "files": [
+        "frontend/src/i18n/strings.pt-BR.ts",
+        "frontend/src/pages/InicioPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "qr-code@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-rename-the-bottom-navigation-tab-label-from-programa-o-to-eventos-pt-br-without-changing-the-underlying-route-behavior-unless-required-and-ensure-the-updated-label-is-sourced-from-the-i18n-strings",
+      "featureTitle": "Rename the bottom navigation tab label from “Programação” to “Eventos” (pt-BR) without changing the underlying route behavior unless required, and ensure the updated label is sourced from the i18n strings.",
+      "files": [
+        "frontend/src/i18n/strings.pt-BR.ts",
+        "frontend/src/pages/ProgramacaoPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "camera@1.0.0",
+        "qr-code@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
